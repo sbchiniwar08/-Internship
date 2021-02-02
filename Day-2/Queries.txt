@@ -1,0 +1,26 @@
+1. List all media of a particular movie:
+select m.moviename,mt.media from movietable m JOIN mediatable mt on m.movieid=mt.MovieId where m.MovieName='Batman'
+
+2. List all media and reviews of a particular movie:
+select m.moviename,mt.media,r.Review from movietable m JOIN mediatable mt on m.movieid=mt.MovieId join reviews r on m.MovieId=r.MovieId where m.MovieName='Batman';
+
+3. List all cast along with roles and artist of a particular film:
+select c.Castname,a.ArtistName from movietable m JOIN cast c on m.movieid=c.MovieId join artist a on c.artistid=a.ArtistId where m.MovieName='Batman';
+
+4. List all the reviews given by a particular user:
+select u.username,r.review from user u join reviews r on u.UserId=r.UserId where u.Username='Mahesh';
+
+5. List all the skills of a particular user:
+select a.ArtistName,s.skill from artist a join skills s on a.ArtistId=s.artistid where a.ArtistName='Robert Downey Jr';
+
+6. List all the roles performed by a paticular artist:
+select c.castname from cast c join artist a on c.artistid=a.ArtistId where a.ArtistName='Robert Downey Jr';
+
+
+Views:
+
+1. Create a view for getting the overall rating of all movies
+select m.moviename,avg(r.ratings) FROM movietable m join reviews r on m.MovieId=r.MovieId group by r.MovieId;
+
+2. Create a view to list all actors with their skills
+select a.artistname,s.skill from artist a join skills s on a.artistid=s.artistid;
