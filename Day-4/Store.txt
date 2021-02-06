@@ -1,0 +1,23 @@
+1.Get all variants by product id
+SELECT VariantId FROM `variants` WHERE ProductId=1
+
+2.Get product details by particular variant id
+SELECT * FROM `variants` WHERE VariantId=10
+
+3.Write a query to insert a varient inside a product
+INSERT INTO `variants`(`ProductId`, `VariantId`, `Size`, `Ram`, `Color`) VALUES (2,15,"128gb","8gb","White")
+
+4.Get media of a particular variant
+SELECT * FROM `medias` WHERE VariantId=1;
+
+5.Get average rating of a product by id
+SELECT ProductId,avg(Rating) FROM `reviews` WHERE ProductId=1 group by ProductId
+
+6.Fetch all order by customer id
+SELECT * FROM `orders` WHERE CustomerId=1
+
+7.Get total number of sales by product Id
+SELECT count(o.VariantId) FROM orderlist o join variants v on o.VariantId=v.VariantId WHERE v.ProductId=1
+
+8.Get total number of sales value for over all company
+SELECT count(VariantId) FROM orderlist
